@@ -10,10 +10,10 @@ import (
 func main() {
 	http.HandleFunc("/", echo)
 	http.ListenAndServe(":8080", nil)
+	log.Println("Server started")
 }
 
 func echo(w http.ResponseWriter, r *http.Request) {
-	log.Println("Server started")
 	buf := new(bytes.Buffer)
 	buf.ReadFrom(r.Body)
 	response := buf.String()
